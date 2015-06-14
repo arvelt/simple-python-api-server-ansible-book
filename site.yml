@@ -1,0 +1,8 @@
+- name: start provisioning
+  sudo: yes
+  hosts: vagrant
+  roles:
+    - common
+    - {role: jdauphant.nginx}
+#    - {role: gdamjan.uwsgi}
+    
