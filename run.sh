@@ -10,6 +10,6 @@ fi
 
 DIR=$(cd $(dirname $0); pwd)
 
-#ansible-galaxy install gdamjan.uwsgi -p ${DIR}
+ansible-galaxy install gdamjan.uwsgi -p ${DIR}
 ansible-galaxy install jdauphant.nginx -p ${DIR}
-ansible-playbook -i hosts -u ${USERNAME} site.yml -vvvv
+ansible-playbook -i hosts -u ${USERNAME} site.yml

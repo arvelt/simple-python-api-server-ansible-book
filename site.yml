@@ -4,5 +4,4 @@
   roles:
     - common
     - {role: jdauphant.nginx}
-#    - {role: gdamjan.uwsgi}
-    
+    - {role: gdamjan.uwsgi}
