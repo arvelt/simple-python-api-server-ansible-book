@@ -9,12 +9,12 @@ if [ ${USERNAME} == "nothing" ]; then
 fi
 
 vars="{
-    \"APP_USER_NAME\":\"$USERNAME\",
-    \"APP_REPOSITORY\":\"https://github.com/arvelt/hello-flask.git\"
+    \"APP_USER_NAME\":\"$USERNAME\"
 }"
+
 DIR=$(cd $(dirname $0); pwd)
 
 ansible-galaxy install gdamjan.uwsgi -p ${DIR}
 ansible-galaxy install jdauphant.nginx -p ${DIR}
 ansible-galaxy install vitalk.flaskapp -p ${DIR}
-ansible-playbook -i hosts -u ${USERNAME} --extra-vars="${vars}" site.yml
+ansible-playbook -i hosts -u ${USERNAME} --extra-vars="${vars}" -t setup site.yml

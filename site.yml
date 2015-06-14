@@ -7,5 +7,5 @@
     - {role: gdamjan.uwsgi}
     - {
         role: vitalk.flaskapp,
-        app_user: "{{ APP_USER_NAME}}",
-        app_repository: "{{ APP_REPOSITORY}}"}
+        app_user: "{{ APP_USER_NAME}}"
+}
