@@ -1,15 +1,4 @@
 ---
-- name: Install packages required for python development
-  apt: pkg={{ item }} state=present
-  sudo: true
-  with_items:
-    - git
-    - libpq-dev
-    - python-dev
-    - python-psycopg2
-    - python-virtualenv
-    - build-essential
-
 - name: Install the latest pip version
   pip: name=pip extra_args='-U'
   sudo: true

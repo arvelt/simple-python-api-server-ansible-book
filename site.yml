@@ -4,7 +4,6 @@
   roles:
     - common
     - {role: jdauphant.nginx}
-    - {role: gdamjan.uwsgi}
-    - {
-        role: pip,
-        app_user: "{{ APP_USER_NAME}}"}
+    - {role: pip,
+       app_user: "{{ APP_USER_NAME}}"}
+    - {role: uwsgi}
