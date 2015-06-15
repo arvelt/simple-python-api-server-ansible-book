@@ -6,6 +6,5 @@
     - {role: jdauphant.nginx}
     - {role: gdamjan.uwsgi}
     - {
-        role: vitalk.flaskapp,
-        app_user: "{{ APP_USER_NAME}}"
-}
+        role: pip,
+        app_user: "{{ APP_USER_NAME}}"}

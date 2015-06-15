@@ -17,4 +17,4 @@ DIR=$(cd $(dirname $0); pwd)
 ansible-galaxy install gdamjan.uwsgi -p ${DIR}
 ansible-galaxy install jdauphant.nginx -p ${DIR}
 ansible-galaxy install vitalk.flaskapp -p ${DIR}
-ansible-playbook -i hosts -u ${USERNAME} --extra-vars="${vars}" -t setup site.yml
+ansible-playbook -i hosts -u ${USERNAME} --extra-vars="${vars}" site.yml
