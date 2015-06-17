@@ -1,0 +1,13 @@
+description "uWSGI"
+start on runlevel [2345]
+stop on runlevel [06]
+respawn
+
+env UWSGI=/usr/local/bin/uwsgi
+env LOGTO=/var/log/uwsgi/emperor.log
+
+exec $UWSGI --master --emperor /etc/uwsgi/vassals --die-on-term --uid vagrant --gid vagrant --logto $LOGTO
+
+# and
+#sudo mkdir -p /etc/uwsgi/vassals
+#sudo ln -s /home/vagrant/uwsgi.ini /etc/uwsgi/vassals
