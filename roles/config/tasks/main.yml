@@ -1,0 +1,10 @@
+---
+- name: configure uwsgi.ini to home directory
+  sudo: no
+  template: src=uwsgi.ini dest=/home/{{ APP_USER_NAME }}/uwsgi.ini
+
+- name: configure uwsgi.ini to nginx
+  template: src=uwsgi.conf dest=/etc/nginx/conf.d/uwsgi.conf
+
+- name: exec uwsgi script to init.d
+  template: src=uwsgi dest=/etc/init.d/uwsgi mode=0755

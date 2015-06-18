@@ -1,3 +1,4 @@
+.DS_Store
 jdauphant.nginx
 gdamjan.uwsgi
 vitalk.flaskapp
