@@ -6,4 +6,5 @@
     - {role: jdauphant.nginx}
     - {role: pip,
        app_user: "{{ APP_USER_NAME}}"}
-    - {role: uwsgi}
+    - uwsgi
+    - config

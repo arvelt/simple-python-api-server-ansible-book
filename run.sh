@@ -5,16 +5,17 @@ read USERNAME
 if [ ! ${USERNAME} ]; then USERNAME="nothing"; fi
 if [ ${USERNAME} == "nothing" ]; then
     USERNAME="vagrant"
-    echo "Use vagrant user"
 fi
 
+echo "Use ${USERNAME} user"
+
 vars="{
-    \"APP_USER_NAME\":\"$USERNAME\"
+    \"APP_USER_NAME\":\"$USERNAME\",
+    \"APP_NAME\":\"hello-flask\"
 }"
 
 DIR=$(cd $(dirname $0); pwd)
 
 ansible-galaxy install gdamjan.uwsgi -p ${DIR}
 ansible-galaxy install jdauphant.nginx -p ${DIR}
-ansible-galaxy install vitalk.flaskapp -p ${DIR}
 ansible-playbook -i hosts -u ${USERNAME} --extra-vars="${vars}" site.yml

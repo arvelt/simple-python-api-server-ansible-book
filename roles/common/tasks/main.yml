@@ -1,15 +1,12 @@
 # Update all packages to the latest version
 - name: Update packages
   apt: update_cache=yes
-  apt: upgrade=dist
 
 - name: Install packages required for python development
   apt: pkg={{ item }} state=present
   sudo: true
   with_items:
     - git
-    - libpq-dev
     - python-dev
-    - python-psycopg2
     - python-virtualenv
     - build-essential

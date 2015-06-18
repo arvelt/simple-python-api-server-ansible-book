@@ -1,8 +1,8 @@
 # deploy to /home/user_name/
 [uwsgi]
-socket = /tmp/uwsgi.sock
+socket = /tmp/{{ APP_NAME }}.sock
 callable = app
-chdir = /home/{{ APP_USER_NAME }}/hello-flask
+chdir = /home/{{ APP_USER_NAME }}/{{ APP_NAME }}
 wsgi-file   = main.py
 uid         = {{APP_USER_NAME}}
 gid         = {{APP_USER_NAME}}

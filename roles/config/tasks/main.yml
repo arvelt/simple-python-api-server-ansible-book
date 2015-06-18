@@ -1,10 +1,19 @@
 ---
 - name: configure uwsgi.ini to home directory
   sudo: no
-  template: src=uwsgi.ini dest=/home/{{ APP_USER_NAME }}/uwsgi.ini
+  template: src=uwsgi.ini.j2 dest=/home/{{ APP_USER_NAME }}/uwsgi_{{ APP_NAME }}.ini
+
+- name: delete nginx default sites ( create by jdauphant.nginx)
+  file: path=/etc/nginx/sites-enabled/default.conf state=absent
 
 - name: configure uwsgi.ini to nginx
-  template: src=uwsgi.conf dest=/etc/nginx/conf.d/uwsgi.conf
+  template: src=uwsgi.conf.j2 dest=/etc/nginx/conf.d/{{ APP_NAME }}.conf
 
-- name: exec uwsgi script to init.d
-  template: src=uwsgi dest=/etc/init.d/uwsgi mode=0755
+- name: create uwsgi script to init.d
+  template: src=uwsgi.j2 dest=/etc/init.d/uwsgi_{{ APP_NAME }} mode=0755
+
+- name: exec uwsgi service
+  service: name=uwsgi_{{ APP_NAME }} state=started
+
+- name: exec nginx service
+  service: name=nginx state=started
