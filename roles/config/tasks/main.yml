@@ -11,9 +11,3 @@
 
 - name: create uwsgi script to init.d
   template: src=uwsgi.j2 dest=/etc/init.d/uwsgi_{{ APP_NAME }} mode=0755
-
-- name: exec uwsgi service
-  service: name=uwsgi_{{ APP_NAME }} state=started
-
-- name: exec nginx service
-  service: name=nginx state=started
