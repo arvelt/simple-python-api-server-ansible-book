@@ -9,5 +9,5 @@
 - name: configure uwsgi.ini to nginx
   template: src=uwsgi.conf.j2 dest=/etc/nginx/conf.d/{{ APP_NAME }}.conf
 
-- name: create uwsgi script to init.d
-  template: src=uwsgi.j2 dest=/etc/init.d/uwsgi_{{ APP_NAME }} mode=0755
+- name: create exec uwsgi app script to init
+  template: src=uwsgi.init.conf.j2 dest=/etc/init/uwsgi_{{ APP_NAME }}.conf

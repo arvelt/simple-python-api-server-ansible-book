@@ -1,0 +1,9 @@
+mple uWSGI script
+
+description "uwsgi tiny instance"
+start on runlevel [2345]
+stop on runlevel [06]
+
+respawn
+
+exec uwsgi --master --processes 4 --die-on-term --uid www-data --gid www-data --ini /home/{{ APP_USER_NAME }}/uwsgi_{{ APP_NAME }}.ini

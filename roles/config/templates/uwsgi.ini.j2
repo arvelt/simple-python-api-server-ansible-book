@@ -1,11 +1,11 @@
 # deploy to /home/user_name/
 [uwsgi]
-socket = /tmp/{{ APP_NAME }}.sock
+socket = 127.0.0.1:3031
 callable = app
 chdir = /home/{{ APP_USER_NAME }}/{{ APP_NAME }}
 wsgi-file   = main.py
-uid         = {{APP_USER_NAME}}
-gid         = {{APP_USER_NAME}}
+uid         = www-data
+gid         = www-data
 chmod-socket = 666
 processes = 4
 threads = 2
