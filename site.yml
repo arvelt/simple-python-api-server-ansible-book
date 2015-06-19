@@ -8,3 +8,4 @@
        app_user: "{{ APP_USER_NAME}}"}
     - uwsgi
     - config
+    - firewall

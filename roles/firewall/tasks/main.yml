@@ -1,0 +1,9 @@
+# Deny everything and enable UFW
+ufw: state=enabled policy=deny
+
+# Allow ssh
+ufw: rule=allow name=ssh
+
+# Allow ports access:
+ufw: rule=allow port=80
+ufw: rule=allow port=443
